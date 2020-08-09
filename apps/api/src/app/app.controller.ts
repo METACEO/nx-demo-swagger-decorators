@@ -1,15 +1,16 @@
-import { Controller, Get } from '@nestjs/common';
-
-import { Message } from '@nx-demo-swagger-decorators/api-interfaces';
-
-import { AppService } from './app.service';
+import { Controller, Post, Body } from '@nestjs/common';
+import { MessageRequest, MessageResponse } from '@nx-demo-swagger-decorators/api-interfaces';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
-  @Get('hello')
-  getData(): Message {
-    return this.appService.getData();
+  @Post('hello')
+  getData(@Body() body: MessageRequest): MessageResponse {
+    const { message } = body;
+    const timeStamp = Date.now();
+    return {
+      error: null,
+      message,
+      timeStamp
+    };
   }
 }

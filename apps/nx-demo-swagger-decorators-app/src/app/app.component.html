@@ -1,4 +1,10 @@
 <div style="text-align: center;">
   <h1>Welcome to nx-demo-swagger-decorators-app!</h1>
 </div>
-<div>Message: {{ hello$ | async | json }}</div>
+
+<div class="buttons">
+  <button mat-raised-button color="primary" (click)="postGood()">Good POST</button>
+  <button mat-raised-button color="warn" (click)="postBad()">Bad POST</button>
+</div>
+
+<mat-card><pre>response$ === {{response$|async|json}}</pre></mat-card>
