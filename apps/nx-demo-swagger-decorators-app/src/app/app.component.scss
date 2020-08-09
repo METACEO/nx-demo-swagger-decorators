@@ -1,16 +1,36 @@
-/*
- * Remove template code below
- */
 :host {
   display: block;
-  font-family: sans-serif;
   min-width: 300px;
   max-width: 600px;
-  margin: 50px auto;
+  margin: 0 auto;
 }
-.buttons {
+
+.body-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin: 20px 0;
+}
+
+mat-card {
+  overflow-x: auto;
+}
+
+.footer-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // Target the GitHub button:
+  ::ng-deep [mat-raised-button] {
+    .mat-button-wrapper {
+      display: flex;
+      align-items: center;
+      svg {
+        fill: #000000;
+        height: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
 }
