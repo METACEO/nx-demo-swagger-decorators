@@ -7,6 +7,10 @@
   <button mat-raised-button color="warn" (click)="postBad()">Bad POST</button>
 </div>
 
+<mat-card><pre>request$ === {{request$|async|json}}</pre></mat-card>
+
+<br/>
+
 <mat-card><pre>response$ === {{response$|async|json}}</pre></mat-card>
 
 <div class="footer-buttons">

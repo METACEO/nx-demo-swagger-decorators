@@ -10,6 +10,7 @@ import { catchError } from 'rxjs/operators';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  request$: Observable<any> = of({ body: 'Click a button above...' });
   response$: Observable<any> = of({ message: 'Click a button above...' });
 
   constructor(private http: HttpClient) {}
@@ -17,11 +18,13 @@ export class AppComponent {
   public postGood() {
     const body = new MessageRequest();
     body.message = ['Hello world!']; // Correct value type
+    this.request$ = of({ body });
     this.response$ = this.makeRequest(body);
   }
   public postBad() {
     const body = new MessageRequest();
     body.message = 123 as any; // Incorrect value type
+    this.request$ = of({ body });
     this.response$ = this.makeRequest(body);
   }
   private makeRequest(body: any) {
